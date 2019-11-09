@@ -1,0 +1,1 @@
+var contractInstance = newContract.at('0x571B184B3D5177Dc0Dc0FF10A9700FCc43d8ccbd');
