@@ -13,6 +13,16 @@ import "./storage/IWfcManagmentStorage.sol";
 contract WfcManagmentLogical {
 
     using StringAsKey for string;
+	
+    /**
+     * @dev address of the registry this contract is linked to
+     */
+    IWfcRegistry public wfcRegistry;
+	
+	/**
+     * @dev name in bytes of storage contract that this contract is linked through the registry
+     */
+    bytes32 public storageContractName;
 
     /**
      * @dev event emitted when a token is set
@@ -33,16 +43,6 @@ contract WfcManagmentLogical {
      * @dev event emitted when a platform setting is set
      */	
     event SetSettingLog(string indexed _settingName, uint256 _prevoiusSettingValue, uint256 _newSettingValue);
-    
-    /**
-     * @dev address of the registry this contract is linked to
-     */
-    IWfcRegistry public wfcRegistry;
-
-    /**
-     * @dev name in bytes of storage contract that this contract is linked t through the registry
-     */
-    bytes32 public storageContractName;
     
     modifier onlyOwnerDao {
         require(msg.sender == wfcRegistry.getOwnerDao(), "Sender different from Dao owner");
