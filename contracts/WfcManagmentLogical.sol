@@ -13,13 +13,13 @@ import "./storage/IWfcManagmentStorage.sol";
 contract WfcManagmentLogical {
 
     using StringAsKey for string;
-	
+
     /**
      * @dev address of the registry this contract is linked to
      */
     IWfcRegistry public wfcRegistry;
-	
-	/**
+
+    /**
      * @dev name in bytes of storage contract that this contract is linked through the registry
      */
     bytes32 public storageContractName;
@@ -106,8 +106,8 @@ contract WfcManagmentLogical {
     function setSetting(string calldata _settingName, uint256 _newSettingValue) external onlyOwnerDao {
         IWfcManagmentStorage wfcManagmentStorage = IWfcManagmentStorage(wfcRegistry.storageContracts(storageContractName));
         bytes32 settingName = _settingName.convert();
-        uint256 prevoiusSettingValue = wfcManagmentStorage.getSetting(settingName);
-        wfcManagmentStorage.setSetting(settingName, _newSettingValue);
+        uint256 prevoiusSettingValue = wfcManagmentStorage.getSettings(settingName);
+        wfcManagmentStorage.setSettings(settingName, _newSettingValue);
         emit SetSettingLog(_settingName, prevoiusSettingValue, _newSettingValue);
     }
 }

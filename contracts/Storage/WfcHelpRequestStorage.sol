@@ -131,7 +131,7 @@ contract WfcHelpRequestStorage is IWfcHelpRequestStorage {
     function addFundraisingProposal(bytes32 _line, address _organization, uint256 _softcap, uint256 _hardcap, address _currency, uint256 _timeout, address _destination, uint256 _proposalStatus, string calldata _fundraisingDataUrl) external onlyAllowedLogicalContract returns(uint256) {
         uint256 length = proposals.push(FundraisingProposal(_line, _organization, _softcap, _hardcap, _currency, _timeout, _destination, StatusProposal(_proposalStatus), _fundraisingDataUrl));
         return length;
-	}
+    }
     
     /**
       * @dev See {IWfcHelpRequestStorage-setFundraisingLine}

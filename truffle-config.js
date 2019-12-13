@@ -8,7 +8,9 @@ for more details on how to specify configuration options!
 var HDWalletProvider = require('truffle-hdwallet-provider')
 var infura_apikey = '06b92f48aafe41a8b43bea2a19c5424c'
 var mnemonic = 'wonder glare also army glimpse hold this twist gaze energy page century'
+const path = require("path")
 module.exports = {
+  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
   mocha: {
     enableTimeouts: false
   },

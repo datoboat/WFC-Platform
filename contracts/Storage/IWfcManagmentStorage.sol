@@ -39,10 +39,10 @@ contract IWfcManagmentStorage {
     /**
      * @dev setter of Wfc platform general settings
      */
-    function setSetting(bytes32 _settingName, uint256 _value) external;
+    function setSettings(bytes32 _settingName, uint256 _value) external;
 
     /**
      * @dev getter of Wfc platform general settings
      */
-    function getSetting(bytes32 _settingName) public view returns(uint256);
+    function getSettings(bytes32 _settingName) public view returns(uint256);
 }
